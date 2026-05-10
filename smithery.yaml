@@ -1,0 +1,21 @@
+# Smithery deployment configuration for Court Records MCP
+# https://smithery.ai/docs/deploy
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: "CourtListener API token (optional, for premium rate limits)"
+    default: {}
+  commandFunction:
+    |-
+    (config) => ({
+      command: "python",
+      args: ["server.py"],
+      env: {
+        ...(config.apiKey ? { COURT_LISTENER_API_KEY: config.apiKey } : {}),
+      },
+    })
