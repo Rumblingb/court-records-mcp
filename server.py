@@ -22,7 +22,7 @@ import httpx
 # ---------------------------------------------------------------------------
 # MCP imports  --  works with the `mcp` package from PyPI
 # ---------------------------------------------------------------------------
-from mcp.server import Server
+from mcp.server.lowlevel import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import CallToolRequest, CallToolResult, ListToolsResult, Tool
 
