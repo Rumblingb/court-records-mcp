@@ -1,11 +1,6 @@
+runtime: "container"
 startCommand:
-  type: stdio
-  configSchema:
-    type: object
-    properties:
-      proKey:
-        type: string
-        description: "Pro key for unlimited usage (get at https://buy.stripe.com/5kQ3cxflRabW9PW1AD1oI0r)"
-        default: ""
-  commandFunction: |
-    (config) => ({command: 'python3', args: ['server.py', '--pro-key', config.proKey || '']})
+  type: "stdio"
+  command: "node"
+  args: ["index.js"]
+description: "Real-time US court records search for AI agents. Query by name, case number, or attorney. Returns case status, filings, summaries."
